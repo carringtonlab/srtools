@@ -4,12 +4,13 @@ use warnings;
 use Getopt::Std;
 use Config::Tiny;
 use Cwd;
+use FindBin qw($Bin);
 
 ############## Begin variables ##############
 
 my (%opt, $seqFile, $confFile, $species, $verbose, $method);
 our (%stats, $conf, $outfile);
-my $defaultConf = '/home/nfahlgren/hts_data/sRNAmp.conf';
+my $defaultConf = "$Bin/../include/default.conf";
 getopts('f:o:c:s:a:vh', \%opt);
 var_check();
 

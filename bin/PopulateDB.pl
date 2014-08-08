@@ -5,14 +5,14 @@ use Getopt::Std;
 use Config::Tiny;
 use Cwd;
 use DBI;
-use Env qw(HOME);
-use lib "$HOME/lib/perl";
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseListToArray);
 
 ############## Begin variables ##############
 
 my (%opt, %stats, $file, $verbose, $confFile, $species, $libID, $outfile, %checked, %new);
-my $defaultConf = '/home/nfahlgren/hts_data/sRNAmp.conf';
+my $defaultConf = "$Bin/../include/default.conf";
 my $readsTable = 'reads.csv';
 my $sequencesTable = 'sequences.csv';
 my $newBAM = 0;

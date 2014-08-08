@@ -5,14 +5,14 @@ use Getopt::Std;
 use Config::Tiny;
 use Cwd;
 use DBI;
-use Env qw(HOME);
-use lib "$HOME/lib/perl";
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseListToArray);
 
 ############## Begin variables ##############
 
 my (%opt, $file, $verbose, $confFile, $species, $samFile);
-my $defaultConf = '/home/nfahlgren/hts_data/sRNAmp.conf';
+my $defaultConf = "$Bin/../include/default.conf";
 my $readsTable = 'reads.csv';
 my $sequencesTable = 'sequences.csv';
 getopts('f:r:o:l:c:s:vh', \%opt);
@@ -71,28 +71,6 @@ if (-e "$conf->{'bam'}.bai") {
   unlink("$conf->{'bam'}.bai");
 }
 `$sam index $conf->{'bam'}`;
-
-## Create BAM alignment database
-## Convert the input SAM file to a temporary BAM file
-#`$sam view -bt $conf->{'fai'} $file > tmp.bam`;
-
-#if (! -e $conf->{'bam'}) {
-#  # Since the BAM database does not exist, sort the temporary
-#  # BAM database and save it as the official database
-#  my $outBAM = $conf->{'bam'};
-#  $outBAM =~ s/\.bam$//;
-#  `$sam sort tmp.bam $outBAM`;
-#} else {
-#  # Sort the temporary BAM database
-#  `$sam sort tmp.bam tmp.sorted`;
-#  # Merge the sorted BAM files
-#  `$sam merge -f $conf->{'bam'} $conf->{'bam'} tmp.sorted.bam`;
-#  unlink('tmp.sorted.bam');
-#}
-# Remove the temporary BAM file
-#unlink('tmp.bam');
-## Index the new BAM database
-#`$sam index $conf->{'bam'}`;
 
 exit;
 

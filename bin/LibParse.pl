@@ -2,18 +2,15 @@
 use strict;
 use warnings;
 use Getopt::Std;
-#use Config::Tiny;
 use Cwd;
-#use DBI;
-use Env qw(HOME);
-use lib "$HOME/lib/perl";
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseFileList);
 
 ############## Begin variables ##############
 
 my (%opt, $type, $prefix);
 our (%seqs, %stats, @files, $verbose, @startList, @endList, @indexList, $minInsertSize, $maxInsertSize, $readLength, $adaptLen, $scanLen, $trim, $failed, $log);
-#my $defaultConf = '/home/mcb/fahlgren/programs/sRNAmp/sRNAmp.conf';
 getopts('f:t:e:E:m:M:r:o:l:c:s:a:vh', \%opt);
 var_check();
 
