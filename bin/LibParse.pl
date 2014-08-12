@@ -516,7 +516,7 @@ sub var_check {
   if ($opt{'M'}) {
     $maxInsertSize = $opt{'M'};
   } else {
-    $maxInsertSize = 0;
+    $maxInsertSize = 1000;
   }
 	if ($opt{'a'}) {
 		$failed = $opt{'a'};
