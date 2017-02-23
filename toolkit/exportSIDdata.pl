@@ -5,8 +5,8 @@ use Getopt::Std;
 use POSIX qw( ceil floor);
 use DBI;
 use Config::Tiny;
-use Env qw(HOME);
-use lib "$HOME/lib/perl";
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseListToArray txt_file_check);
 
 #########################################################

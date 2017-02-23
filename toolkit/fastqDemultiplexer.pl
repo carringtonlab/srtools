@@ -4,8 +4,8 @@ use warnings;
 use Getopt::Std;
 use Cwd;
 use FileHandle;
-use Env qw(HOME);
-use lib "$HOME/lib/perl";
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseFileList);
 
 ############## Begin variables ##############

@@ -6,8 +6,8 @@ use POSIX qw( ceil floor);
 use DBI;
 use Config::Tiny;
 use HTML::Entities qw(decode_entities);
-use Env qw(HOME);
-use lib "$HOME/lib/perl";
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseListToArray parseFileList);
 
 #########################################################

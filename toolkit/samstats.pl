@@ -4,6 +4,8 @@ use warnings;
 use Getopt::Std;
 use threads;
 use Thread::Queue;
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseFileList);
 
 my (%opt, $outfile);

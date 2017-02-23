@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseFileList);
 use Getopt::Std;
 
@@ -12,8 +14,8 @@ getopts('s:f:o:h',\%opt);
 var_check();
 
 my %species;
-$species{'Athaliana'} = '/shares/jcarrington_share/gbrowse/Arabidopsis_thaliana/gff_files/A_THALIANA.gff3';
-$species{'TuMV'} = '/shares/jcarrington_share/gbrowse/Turnip_mosaic_virus/gff_files/TUMV.gff3';
+$species{'Athaliana'} = 'A_THALIANA.gff3';
+$species{'TuMV'} = 'TUMV.gff3';
 
 if (!exists($species{$species})) {
   print STDERR " $species is not a valid species identifier. See makeSAMfeatureDB.pl -h for options.\n\n";

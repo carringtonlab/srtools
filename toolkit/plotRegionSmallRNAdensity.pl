@@ -8,8 +8,8 @@ use Config::Tiny;
 use Statistics::R;
 use Statistics::Descriptive;
 use Cwd;
-use Env qw(HOME);
-use lib "$HOME/lib/perl";
+use FindBin qw($Bin);
+use lib "$Bin/../lib";
 use CommonFunctions qw(parseListToArray);
 
 #########################################################
